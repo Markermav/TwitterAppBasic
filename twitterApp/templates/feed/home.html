@@ -1,0 +1,38 @@
+{% extends 'feed/base.html' %} 
+
+
+
+{% if user.is_authenticated %}
+
+{% block content %} 
+<button type="submit"><a href="app/signout">SignOut</a></button>
+<br> <br> <br> <br>
+<div class="container mx-5"> </div>
+{% for t in tweets %}
+
+<div class="card w-75 mx-5">
+  <div class="card-body">
+    <h5 class="card-title">{{t.uname}}</h5>
+    <p class="card-text">{{t.text}}</p>
+    <h4 class="card-text">{{t.datetime}}</h4>
+    {% comment %} <a href="#" class="btn btn-primary">Button</a> {% endcomment %}
+  </div>
+</div><br>
+
+{% endfor %} 
+
+
+{% for message in messages  %}
+<div class="fixed-bottom"style="background-color:#ddff99;padding:15px">
+<div style="color:black;"> Message: {{message}} </div> 
+{% endfor %}
+</div>
+</div>
+
+{% endblock content %}
+
+
+{% endif %}
+
+
+
